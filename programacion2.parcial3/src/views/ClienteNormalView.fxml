@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ClienteNormalController">
+   <children>
+      <Label layoutX="181.0" text="Cliente Natural">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="14.0" layoutY="52.0" prefHeight="345.0" prefWidth="569.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Crear Cliente ">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="25.0" layoutY="18.0" text="Nombre ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="118.0" text="Cédula ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="171.0" text="Estrato">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtNombreCliente" layoutX="136.0" layoutY="22.0" prefHeight="25.0" prefWidth="325.0" />
+                        <TextField fx:id="txtApellidos" layoutX="133.0" layoutY="72.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="txtCedula" layoutX="110.0" layoutY="124.0" prefHeight="25.0" prefWidth="353.0" />
+                        <Button fx:id="btnLimpiarInfoNormal" layoutX="29.0" layoutY="234.0" mnemonicParsing="false" onAction="#limpiarAhorro" prefHeight="38.0" prefWidth="92.0" text="Limpiar">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnAgregarClienteNormal" layoutX="400.0" layoutY="234.0" mnemonicParsing="false" onAction="#agregarClienteNormal" prefHeight="39.0" prefWidth="107.0" text="Agregar">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Separator layoutX="25.0" layoutY="223.0" prefHeight="0.0" prefWidth="535.0" />
+                        <Label layoutX="25.0" layoutY="66.0" text="Apellidos">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnVentanaPrincipal" layoutX="170.0" layoutY="263.0" mnemonicParsing="false" onAction="#showVentanaPrincipal" prefHeight="39.0" prefWidth="193.0" text="Regresar al portal">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <ComboBox fx:id="comboEstrato" layoutX="123.0" layoutY="176.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Consultar información">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="47.0" layoutY="36.0" prefHeight="30.0" prefWidth="174.0" text="Cédula de cliente:">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtInfoNumCuenta" layoutX="231.0" layoutY="38.0" prefHeight="25.0" prefWidth="211.0" />
+                        <Button fx:id="btnConsultar2" layoutX="251.0" layoutY="77.0" mnemonicParsing="false" onAction="#mostrarInfoCuenta" text="Consultar" />
+                        <Button fx:id="btnInfoLimpiar" layoutX="454.0" layoutY="38.0" mnemonicParsing="false" onAction="#limpiarInfoCuenta" text="Limpiar" />
+                        <TableView fx:id="tableViewCliente" layoutX="66.0" layoutY="108.0" prefHeight="193.0" prefWidth="438.0">
+                          <columns>
+                            <TableColumn fx:id="columnNombre" prefWidth="97.0" text="Nombre" />
+                            <TableColumn fx:id="columnApellidos" prefWidth="88.0" text="Apellidos" />
+                              <TableColumn fx:id="columnCedula" prefWidth="113.0" text="Cédula" />
+                              <TableColumn fx:id="columnEstrato" prefWidth="139.0" text="Estrato " />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Registrar factura">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="40.0" layoutY="28.0" prefHeight="18.0" prefWidth="76.0" text="Código">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="58.0" prefHeight="30.0" prefWidth="200.0" text="Fecha de facturación">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="88.0" prefHeight="30.0" prefWidth="200.0" text="Total a pagar">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="40.0" layoutY="118.0" prefHeight="30.0" prefWidth="200.0" text="Cédula del cliente">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCodigo" layoutX="128.0" layoutY="31.0" prefHeight="25.0" prefWidth="420.0" />
+                        <TextField fx:id="txtFecha" layoutX="225.0" layoutY="61.0" prefHeight="25.0" prefWidth="322.0" />
+                        <TextField fx:id="txtTotalpagar" layoutX="168.0" layoutY="91.0" prefHeight="25.0" prefWidth="379.0" />
+                        <TextField fx:id="txtCedulaClienteFactura" layoutX="205.0" layoutY="121.0" prefHeight="25.0" prefWidth="342.0" />
+                        <Button fx:id="btnAniadirFactura" layoutX="338.0" layoutY="178.0" mnemonicParsing="false" onAction="#aniadirFactura" prefHeight="53.0" prefWidth="141.0" text="Añadir" />
+                        <Button fx:id="btnLimpairCamposFac" layoutX="48.0" layoutY="178.0" mnemonicParsing="false" onAction="#limpiarCamposFac" prefHeight="53.0" prefWidth="120.0" text="Limpiar campos" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Consultar facturas">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="74.0" layoutY="40.0" text="Cédula ">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtCedulaFactura" layoutX="170.0" layoutY="43.0" prefHeight="25.0" prefWidth="222.0" />
+                        <Button fx:id="btnConsultarFacturas" layoutX="231.0" layoutY="81.0" mnemonicParsing="false" onAction="#consultarFacturas" prefHeight="25.0" prefWidth="101.0" text="Consultar" />
+                        <Button fx:id="btnLimpiarCamposFacts" layoutX="415.0" layoutY="43.0" mnemonicParsing="false" onAction="#limpiarCamposInfoFacts" prefHeight="25.0" prefWidth="101.0" text="Limpiar " />
+                        <TableView fx:id="tableViewFacturas" layoutX="29.0" layoutY="111.0" prefHeight="191.0" prefWidth="504.0">
+                          <columns>
+                            <TableColumn fx:id="columnCodigo" prefWidth="130.0" text="Código" />
+                            <TableColumn fx:id="columnFechaFactura" prefWidth="190.0" text="Fecha de facturación" />
+                              <TableColumn fx:id="columnTotalPagar" prefWidth="183.0" text="Total a pagar" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

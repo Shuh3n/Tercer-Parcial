@@ -1,0 +1,117 @@
+package programacion2.parcial3.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Empresa {
+
+	private String nombre;
+	private List<ClienteNormal> listaClientesNormales = new ArrayList<>();
+	private List<ClienteJuridico> listaClientesJuridicos = new ArrayList<>();
+	private List<Factura> listaFacturas = new ArrayList<>();
+
+	public Empresa() {
+		super();
+	}
+
+	public Empresa(String nombre, List<ClienteNormal> listaClientesNormales, List<ClienteJuridico> listaClientesJuridicos,
+			List<Factura> listaFacturas) {
+		super();
+		this.nombre = nombre;
+		this.listaClientesNormales = listaClientesNormales;
+		this.listaClientesJuridicos = listaClientesJuridicos;
+		this.listaFacturas = listaFacturas;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public List<ClienteNormal> getListaClientesNormales() {
+		return listaClientesNormales;
+	}
+
+	public void setListaClientesNormales(List<ClienteNormal> listaClientesNormales) {
+		this.listaClientesNormales = listaClientesNormales;
+	}
+
+	public List<ClienteJuridico> getListaClientesJuridicos() {
+		return listaClientesJuridicos;
+	}
+
+	public void setListaClientesJuridicios(List<ClienteJuridico> listaClientesJuridicos) {
+		this.listaClientesJuridicos = listaClientesJuridicos;
+	}
+
+	/**
+	 * Se ingresan los datos del cliente que se desea crear.
+	 * @param nombre
+	 * @param apellidos
+	 * @param cedula
+	 * @param estrato
+	 * @return Retorna true si se pudo crear el cliente, false lo contrario a esto.
+	 */
+    public boolean crearClienteNormal(String nombre, String apellidos,String cedula, String estrato){
+
+    	if(!verificarClienteNormal(cedula)){
+    		ClienteNormal cliente = new ClienteNormal(nombre, apellidos, cedula, estrato);
+    		listaClientesNormales.add(cliente);
+    		return true;
+    	}
+		return false;
+
+
+    }
+
+    /**
+     * Se recibe la cédula del cliente y se revisa si se encuentra registrado
+     * @param
+     * @return retorna true o false dependiendo del resultado hallado
+     */
+	public boolean verificarClienteNormal(String cedula){
+		boolean encontrado= false;
+		for (ClienteNormal cliente : listaClientesNormales){
+			if(cliente.getCedula().equals(cedula)){
+				encontrado= true;
+				return encontrado;
+			}
+		}
+		return encontrado;
+	}
+
+	public boolean crearFacturaNormal(String cedula){
+		boolean creado = false;
+		if(verificarClienteNormal(cedula)){
+
+
+		}
+
+		return creado;
+	}
+
+	public boolean verificarFacturaClienteNormal(String cedula, String fecha){
+		boolean flag = false;
+		if(!encontrarClienteNormal(cedula).equals(null)){
+			if()
+		}
+
+	}
+
+	public ClienteNormal encontrarClienteNormal(String cedula){
+		for (ClienteNormal cliente : listaClientesNormales) {
+			if(cliente.getCedula().equals(cedula)){
+				return cliente;
+			}
+		}
+		return null;
+	}
+
+
+
+
+
+}

@@ -1,0 +1,27 @@
+package programacion2.parcial3.model;
+
+public class Factura {
+
+	private String codigo;
+	private String fechaFacturacion;
+	private String totalPagar;
+	private String cedulaCliente;
+
+	public Factura() {
+		super();
+	}
+
+	public Factura(String codigo, String fechaFacturacion, String totalPagar, String cedulaCliente) {
+		super();
+		this.codigo = codigo;
+		this.fechaFacturacion = fechaFacturacion;
+		this.totalPagar = totalPagar;
+		this.cedulaCliente = cedulaCliente;
+
+	}
+
+
+
+
+
+}

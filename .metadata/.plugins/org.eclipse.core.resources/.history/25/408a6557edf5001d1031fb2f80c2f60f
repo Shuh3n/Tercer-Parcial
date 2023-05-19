@@ -1,0 +1,42 @@
+package controllers;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+
+public class VentanaPrincipalController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button btnClienteNatural;
+
+    @FXML
+    private Button btnClienteJuridico;
+
+
+    @FXML
+    void showVentanaClienteNatural(ActionEvent event) {
+
+    }
+
+    @FXML
+    void showVentanaClienteJuridico(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+        assert btnClienteNatural != null : "fx:id=\"btnClienteNatural\" was not injected: check your FXML file 'VentanaPrincipalView.fxml'.";
+        assert btnClienteJuridico != null : "fx:id=\"btnClienteJuridico\" was not injected: check your FXML file 'VentanaPrincipalView.fxml'.";
+
+    }
+}
+

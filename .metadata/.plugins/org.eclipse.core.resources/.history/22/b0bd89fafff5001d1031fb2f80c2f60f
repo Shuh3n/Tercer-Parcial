@@ -1,0 +1,367 @@
+package controllers;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import application.Aplicacion;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
+import programacion2.parcial3.model.ClienteJuridico;
+import programacion2.parcial3.model.ClienteNormal;
+import programacion2.parcial3.model.Empresa;
+import programacion2.parcial3.model.Factura;
+
+public class ClienteJuridicoController implements Initializable{
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private TableColumn<Factura, String> columnCodigo;
+
+    @FXML
+    private TableView<ClienteJuridico> tableViewCliente;
+
+    @FXML
+    private TableColumn<?, ?> columnTotalPagar;
+
+    @FXML
+    private TextField txtInfoNumCuenta;
+
+    @FXML
+    private Button btnVentanaPrincipal;
+
+    @FXML
+    private TextField txtTelefono;
+
+    @FXML
+    private Button btnLimpiarInfoNormal;
+
+    @FXML
+    private TableColumn<ClienteJuridico, String> columnTelefono;
+
+    @FXML
+    private Button btnLimpiarCamposFacts;
+
+    @FXML
+    private TextField txtNombreCliente;
+
+    @FXML
+    private Button btnAniadirFactura;
+
+    @FXML
+    private TextField txtFecha;
+
+    @FXML
+    private TextField txtTotalpagar;
+
+    @FXML
+    private TextField txtNIT;
+
+    @FXML
+    private Button btnAgregarClienteNormal;
+
+    @FXML
+    private TableColumn<Factura, String> columnFechaFactura;
+
+    @FXML
+    private TableColumn<ClienteJuridico, String> columnNombre;
+
+    @FXML
+    private TextField txtCodigo;
+
+    @FXML
+    private TextField txtCedulaFactura;
+
+    @FXML
+    private Button btnInfoLimpiar;
+
+    @FXML
+    private Button btnConsultarFacturas;
+
+    @FXML
+    private TableView<Factura> tableViewFacturas;
+
+    @FXML
+    private Button btnLimpairCamposFac;
+
+    @FXML
+    private TableColumn<ClienteJuridico, String> columnNIT;
+
+    @FXML
+    private TextField txtNitClienteFactura;
+
+    @FXML
+    private Button btnConsultar2;
+
+	private VentanaPrincipalController ventanaPrincipalController;
+
+	private Aplicacion aplicacion;
+
+	private Stage stage;
+
+	ObservableList<ClienteJuridico> listaInfoClientesJuridicos = FXCollections.observableArrayList();
+	ObservableList<Factura> listaFacturasClientesNormales = FXCollections.observableArrayList();
+
+
+
+
+    @FXML
+    void limpiarInfoCliente(ActionEvent event) {
+    	txtNombreCliente.clear();
+		txtNIT.clear();
+		txtTelefono.clear();
+
+    }
+
+    @FXML
+    void agregarClienteJuridico(ActionEvent event) {
+    	String name = txtNombreCliente.getText();
+    	String nit = txtNIT.getText();
+    	String telefono = txtTelefono.getText();
+
+    	if(validarDatos(name, nit, telefono)){
+    		crearClienteJuridico(name, nit, telefono);
+    		txtNombreCliente.clear();
+    		txtNIT.clear();
+    		txtTelefono.clear();
+
+    	}
+
+    }
+
+    private void crearClienteJuridico(String name, String nit, String telefono) {
+    	boolean resultado = aplicacion.crearClienteJuridico(name,nit,telefono);
+    	if(resultado==true){
+    		mostrarMensaje("Información Cliente", "Cliente creado", "El cliente se ha creado con éxito", AlertType.INFORMATION);
+    	}
+    	else{
+    		mostrarMensaje("Información Cliente", "Cliente no creado", "El cliente no ha sido creado", AlertType.INFORMATION);
+
+    	}
+	}
+
+    private boolean validarDatos(String name, String nit, String telefono) {
+		String notificacion = "";
+
+		/*Se valida que el saldo ingresado no sea null ni sea cadena vacía,
+		además se valida que sea numérico para su correcta conversión */
+
+
+		if (name == null || name.equals("")) {
+			notificacion += "Por favor ingrese un nombre\n";
+		}
+
+		if (nit == null || nit.equals("")) {
+			notificacion += "Por favor ingrese el NIT\n";
+		}
+		if (telefono == null || telefono.equals("")) {
+			notificacion += "Por favor ingrese el teléfono\n";
+		}
+
+		else {
+			if(!esNumero(telefono)){
+				notificacion += "El teléfono debe ser númerico\n";
+				}
+			}
+
+		if (!notificacion.equals("")) {
+			mostrarMensaje("Notificación", "Cliente no creado", notificacion, AlertType.WARNING);
+			return false;
+		}
+
+		return true;
+	}
+
+	private boolean esNumero(String string) {
+
+		try {
+
+			Float.parseFloat(string);
+
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+	public void mostrarMensaje(String titulo, String header, String contenido, AlertType alertype) {
+		Alert alert = new Alert(alertype);
+		alert.setTitle(titulo);
+		alert.setHeaderText(header);
+		alert.setContentText(contenido);
+		alert.showAndWait();
+	}
+
+	 @FXML
+	 void showVentanaPrincipal(ActionEvent event) {
+		ventanaPrincipalController.show();
+		stage.close();
+	 }
+
+
+
+
+    @FXML
+    void mostrarInfoCuenta(ActionEvent event) {
+    	String nit = txtInfoNumCuenta.getText();
+
+    	if (nit != null && !nit.equals("")){
+    		ClienteJuridico cliente = aplicacion.encontrarClienteJuridico(nit);
+    		if(cliente!=null){
+    			tableViewCliente.getItems().clear();
+				tableViewCliente.setItems(getCuentaInfo(nit));
+    		}
+    		else {
+    			mostrarMensaje("Notificación cliente", "Cliente no encontrado", "La información del cliente no ha sido encontrada",AlertType.INFORMATION);
+				tableViewCliente.getItems().clear();
+			}
+		}
+		else{
+			mostrarMensaje("Notificación", "Datos inválidos", "Por favor ingresar correctamente el NIT", AlertType.WARNING);
+    	}
+
+    }
+
+    private ObservableList<ClienteJuridico> getCuentaInfo(String nit) {
+    	listaInfoClientesJuridicos.clear();
+    	listaInfoClientesJuridicos.add(aplicacion.encontrarClienteJuridico(nit));
+		return listaInfoClientesJuridicos;
+	}
+
+    @FXML
+    void limpiarInfoCuenta(ActionEvent event) {
+    	listaInfoClientesJuridicos.clear();
+		txtInfoNumCuenta.clear();
+
+    }
+
+
+
+
+    @FXML
+    void aniadirFactura(ActionEvent event) {
+    	String codigo = txtCodigo.getText();
+    	String fecha = txtFecha.getText();
+    	String totalPagar = txtTotalpagar.getText();
+    	String nit = txtNitClienteFactura.getText();
+
+    	if(validarDatos1(codigo, fecha, totalPagar,nit)){
+    		crearFactura(codigo, fecha, totalPagar, nit);
+
+    	}
+
+    }
+
+    private void crearFactura(String code, String fecha, String totalPagar, String nit) {
+       	boolean resultado = aplicacion.crearFacturaJuridico(code, fecha, totalPagar, nit);
+    	if(resultado==true){
+    		mostrarMensaje("Información factura", "Factura creada", "La factura a sido creada con éxito", AlertType.INFORMATION);
+    		txtTotalpagar.clear();
+    		txtNitClienteFactura.clear();
+    		txtCodigo.clear();
+    		txtFecha.clear();
+
+    	}
+    	else{
+    		mostrarMensaje("Información factura", "Factura no creada", "La factura no ha sido creada", AlertType.INFORMATION);
+    	}
+	}
+
+
+
+	private boolean validarDatos1(String code, String fecha, String totalPagar, String nit) {
+		String notificacion = "";
+
+		/*Se valida que el saldo ingresado no sea null ni sea cadena vacía,
+		además se valida que sea numérico para su correcta conversión */
+
+
+		if (code == null || code.equals("")) {
+			notificacion += "Ingrese el código\n";
+		}
+
+		if (fecha == null || fecha.equals("")) {
+			notificacion += "Ingrese la fecha\n";
+		}
+		if (totalPagar == null || totalPagar.equals("")) {
+			notificacion += "Ingrese el valor a pagar \n";
+		}
+		else {
+			if(!esNumero(totalPagar)){
+				notificacion += "El valor a pagar ingresado debe ser numérico\n";
+			}
+		}
+		if (nit == null || nit.equals("")) {
+			notificacion += "Ingrese el NIT del cliente\n";
+		}
+
+
+
+
+		if (!notificacion.equals("")) {
+			mostrarMensaje("Notificación", "Factura no creada", notificacion, AlertType.WARNING);
+			return false;
+		}
+
+		return true;
+	}
+
+
+
+
+
+
+
+
+    @FXML
+    void limpiarCamposFac(ActionEvent event) {
+
+    }
+
+    @FXML
+    void consultarFacturas(ActionEvent event) {
+
+    }
+
+    @FXML
+    void limpiarCamposInfoFacts(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+
+    }
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		this.columnNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+		this.columnNIT.setCellValueFactory(new PropertyValueFactory<>("nit"));
+		this.columnTelefono.setCellValueFactory(new PropertyValueFactory<>("telefono"));
+	}
+
+	public void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion = aplicacion;
+	}
+
+	public void init(Stage stage, VentanaPrincipalController ventanaPrincipalController) {
+		this.ventanaPrincipalController = ventanaPrincipalController;
+
+		this.stage = stage;
+	}
+}

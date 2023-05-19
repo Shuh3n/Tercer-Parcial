@@ -1,0 +1,9 @@
+package programacion2.parcial3.model;
+
+public class Factura {
+
+	private String codigo;
+	private String fechaFacturacion;
+	private String totalPagar;
+
+}

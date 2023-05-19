@@ -1,0 +1,69 @@
+package application;
+
+import java.io.IOException;
+
+import controllers.ClienteNormalController;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import programacion2.parcial3.model.Empresa;
+
+public class Aplicacion extends Application{
+
+
+	private Empresa empresa;
+	private Stage primaryStage;
+
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		this.primaryStage= primaryStage;
+		this.empresa= new Empresa();
+		mostrarVentanaPrincipal();
+	}
+
+	private void mostrarVentanaPrincipal() throws IOException {
+		//Se establece la ruta de la ventana que desea ejecutar
+
+		FXMLLoader loader= new FXMLLoader();
+		loader.setLocation(Aplicacion.class.getResource("../Views/ClienteNormalView.fxml"));
+		AnchorPane anchorPane = (AnchorPane)loader.load();
+		ClienteNormalController clienteNormalController = loader.getController();
+		clienteNormalController.setAplicacion(this);
+
+		Scene scene= new Scene(anchorPane);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		ClienteNormalController controller = loader.getController();
+		controller.setStage(primaryStage);
+	}
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+	public void setBanco(Empresa empresa) {
+		this.empresa = empresa;
+	}
+
+	public Stage getPrimaryStage() {
+		return primaryStage;
+	}
+
+	public void setPrimaryStage(Stage primaryStage) {
+		this.primaryStage = primaryStage;
+	}
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+
+	public boolean crearReunion(String name, String surnames, String id, String estrato) {
+		boolean flag = empresa.crearClienteNormal(nombre, apellidos, cedula, estrato)
+		return false;
+	}
+
+
+
+}

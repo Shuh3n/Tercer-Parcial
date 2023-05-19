@@ -1,0 +1,7 @@
+package programacion2.parcial3.model;
+
+public enum Estrato {
+	UNO, DOS, TRES, CUATRO;
+
+
+}

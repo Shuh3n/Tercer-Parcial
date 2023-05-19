@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.VentanaPrincipalController">
+   <children>
+      <Label layoutX="50.0" layoutY="45.0" prefHeight="69.0" prefWidth="512.0" text="¿Quién desea ingresar?" textFill="#49ab40">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnClienteNatural" layoutX="146.0" layoutY="155.0" mnemonicParsing="false" onAction="#showVentanaClienteNatural" prefHeight="72.0" prefWidth="124.0" text="Cliente Natural" />
+      <Button fx:id="btnClienteJuridico" layoutX="330.0" layoutY="155.0" mnemonicParsing="false" onAction="#showVentanaClienteJuridico" prefHeight="72.0" prefWidth="124.0" text="Cliente Jurídico" />
+   </children>
+</AnchorPane>

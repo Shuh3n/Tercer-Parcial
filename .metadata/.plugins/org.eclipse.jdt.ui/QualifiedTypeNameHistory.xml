@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="programacion2.parcial3.model.ClienteJuridico"/>
+<fullyQualifiedTypeName name="programacion2.parcial3.model.ClienteNormal"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="programacion2.parcial3.model.Factura"/>
+<fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
+<fullyQualifiedTypeName name="javafx.stage.Stage"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="javafx.fxml.FXMLLoader"/>
+<fullyQualifiedTypeName name="javafx.scene.layout.AnchorPane"/>
+<fullyQualifiedTypeName name="programacion2.parcial3.controllers.ClienteNormalController"/>
+<fullyQualifiedTypeName name="javafx.scene.Scene"/>
+<fullyQualifiedTypeName name="programacion2.parcial3.aplication.Aplicacion"/>
+<fullyQualifiedTypeName name="javafx.application.Application"/>
+<fullyQualifiedTypeName name="application.Aplicacion"/>
+<fullyQualifiedTypeName name="programacion2.parcial3.model.Empresa"/>
+<fullyQualifiedTypeName name="controllers.ClienteNormalController"/>
+<fullyQualifiedTypeName name="programacion2.parcial3.model.sda"/>
+<fullyQualifiedTypeName name="programacion2.parcial3.model.Hora"/>
+<fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
+<fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
+</qualifiedTypeNameHistroy>

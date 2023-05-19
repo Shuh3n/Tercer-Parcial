@@ -1,0 +1,167 @@
+package controllers;
+
+import java.net.URL;
+
+
+import java.util.ResourceBundle;
+
+import application.Aplicacion;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import programacion2.parcial3.model.Estrato;
+
+public class ClienteNormalController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button btnLimpiarInfoNormal;
+
+    @FXML
+    private Button btnInfoLimpiar;
+
+    @FXML
+    private TextField txtApellidos;
+
+    @FXML
+    private Button btnAgregarClienteNormal;
+
+    @FXML
+    private TextField txtNombreCliente;
+
+    @FXML
+    private TextField txtInfoNumCuenta;
+
+    @FXML
+    private TextField txtEstrato;
+
+    @FXML
+    private Button btnConsultar2;
+
+    @FXML
+    private TextField txtCedula;
+
+	private Stage stage;
+
+	private Aplicacion aplicacion;
+
+
+
+
+
+    @FXML
+    void limpiarAhorro(ActionEvent event) {
+    	txtNombreCliente.clear();
+    	txtApellidos.clear();
+    	txtCedula.clear();
+    	txtEstrato.clear();
+    }
+
+    @FXML
+    void agregarClienteNormal(ActionEvent event) {
+    	String name = txtNombreCliente.getText();
+    	String surnames = txtApellidos.getText();
+    	String id = txtCedula.getText();
+
+
+
+
+    }
+
+    @FXML
+    void mostrarInfoCuenta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void limpiarInfoCuenta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+
+    }
+    public void initialize(URL location, ResourceBundle resources) {
+    }
+
+	public void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion= aplicacion;
+
+	}
+	public void setStage(Stage primaryStage) {
+		stage = primaryStage;
+
+	}
+	public void mostrarMensaje(String titulo, String header, String contenido, AlertType alertype) {
+		Alert alert = new Alert(alertype);
+		alert.setTitle(titulo);
+		alert.setHeaderText(header);
+		alert.setContentText(contenido);
+		alert.showAndWait();
+	}
+	private boolean validarDatos(String descripcion, Fecha fecha, String fecha2, String hora, Hora horario) {
+		String notificacion = "";
+
+		/*Se valida que el saldo ingresado no sea null ni sea cadena vacía,
+		además se valida que sea numérico para su correcta conversión */
+
+
+		if (descripcion == null || descripcion.equals("")) {
+			notificacion += "Descripción ingresada es inválida\n";
+		}
+
+		if (fecha == null) {
+			notificacion += "Debe seleccionar una fecha\n";
+		}
+		if (fecha2 == null || fecha2.equals("")) {
+			notificacion += "Fecha ingresada inválida\n";
+		}
+		else {
+			if(!esNumero(fecha2)){
+				notificacion += "El día ingresado debe ser numérico\n";
+			}
+			Float aux2 = Float.parseFloat(fecha2);
+			if(aux2 < 1 || aux2>31 ){
+				notificacion += "El día debe ser de 1 a 31\n";
+			}
+
+		}
+
+		if (hora == null || hora.equals("")) {
+			notificacion += "Descripción ingresada es inválida\n";
+		}
+		else {
+			if(!esNumero(hora)){
+				notificacion += "La hora ingresada debe ser numérica\n";
+			}
+			Float aux3 = Float.parseFloat(hora);
+			if(aux3 < 0 || aux3>24 ){
+				notificacion += "La hora debe ser de 0-24horas\n";
+			}
+
+
+		}
+
+
+		if (!notificacion.equals("")) {
+			mostrarMensaje("Notificación", "Reunión no creada", notificacion, AlertType.WARNING);
+			return false;
+		}
+
+		return true;
+	}
+
+
+
+}
+

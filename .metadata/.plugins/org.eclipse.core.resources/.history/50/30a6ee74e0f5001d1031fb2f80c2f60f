@@ -1,0 +1,188 @@
+package controllers;
+
+import java.net.URL;
+
+
+import java.util.ResourceBundle;
+
+import application.Aplicacion;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class ClienteNormalController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button btnLimpiarInfoNormal;
+
+    @FXML
+    private Button btnInfoLimpiar;
+
+    @FXML
+    private TextField txtApellidos;
+
+    @FXML
+    private Button btnAgregarClienteNormal;
+
+    @FXML
+    private TextField txtNombreCliente;
+
+    @FXML
+    private TextField txtInfoNumCuenta;
+
+    @FXML
+    private TextField txtEstrato;
+
+    @FXML
+    private Button btnConsultar2;
+
+    @FXML
+    private TextField txtCedula;
+
+	private Stage stage;
+
+	private Aplicacion aplicacion;
+
+
+
+
+
+    @FXML
+    void limpiarAhorro(ActionEvent event) {
+    	txtNombreCliente.clear();
+    	txtApellidos.clear();
+    	txtCedula.clear();
+    	txtEstrato.clear();
+    }
+
+    @FXML
+    void agregarClienteNormal(ActionEvent event) {
+    	String name = txtNombreCliente.getText();
+    	String surnames = txtApellidos.getText();
+    	String id = txtCedula.getText();
+    	String estrato = txtEstrato.getText();
+
+    	if(validarDatos(name, surnames, id, estrato)){
+    		crearClienteNormal(name,surnames,id, estrato);
+    	}
+
+
+
+
+    }
+
+    private void crearClienteNormal(String name, String surnames, String id, String estrato) {
+    	boolean resultado = aplicacion.crearReunion(name,surnames,id, estrato);
+    	if(resultado==true){
+    		mostrarMensaje("Información Cliente", "Cliente creado", "El cliente se ha creado con éxito", AlertType.INFORMATION);
+    	}
+    	else{
+    		mostrarMensaje("Información Cliente", "Cliente no creado", "El cliente no ha sido creado", AlertType.INFORMATION);
+
+    	}
+	}
+
+	@FXML
+    void mostrarInfoCuenta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void limpiarInfoCuenta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+
+    }
+    public void initialize(URL location, ResourceBundle resources) {
+    }
+
+	public void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion= aplicacion;
+
+	}
+	public void setStage(Stage primaryStage) {
+		stage = primaryStage;
+
+	}
+	public void mostrarMensaje(String titulo, String header, String contenido, AlertType alertype) {
+		Alert alert = new Alert(alertype);
+		alert.setTitle(titulo);
+		alert.setHeaderText(header);
+		alert.setContentText(contenido);
+		alert.showAndWait();
+	}
+	private boolean validarDatos(String name, String surnames, String id, String estrato) {
+		String notificacion = "";
+
+		/*Se valida que el saldo ingresado no sea null ni sea cadena vacía,
+		además se valida que sea numérico para su correcta conversión */
+
+
+		if (name == null || name.equals("")) {
+			notificacion += "Descripción ingresada es inválida\n";
+		}
+
+		if (surnames == null || surnames.equals("")) {
+			notificacion += "Ingrese sus apellidos\n";
+		}
+		if (id == null || id.equals("")) {
+			notificacion += "Ingrese una cédula\n";
+
+		if(!esNumero(id)){
+				notificacion += "La cédula ingresada debe ser numérico\n";
+			}
+		}
+		if (id == null || id.equals("")) {
+			notificacion += "Ingrese un estrato del 1-5\n";
+		}
+
+		else {
+			if(!esNumero(estrato)){
+				notificacion += "El estrato debe ser un número entre 1-5\n";
+				}
+			else {
+				Float aux2 = Float.parseFloat(estrato);
+				if(aux2 < 1 || aux2>5 ){
+					notificacion += "El estrato debe ser de 1 a 5\n";
+				}
+
+			}
+
+
+		}
+
+		if (!notificacion.equals("")) {
+			mostrarMensaje("Notificación", "Reunión no creada", notificacion, AlertType.WARNING);
+			return false;
+		}
+
+		return true;
+	}
+	private boolean esNumero(String string) {
+		try {
+
+			Float.parseFloat(string);
+
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+
+
+
+}
+

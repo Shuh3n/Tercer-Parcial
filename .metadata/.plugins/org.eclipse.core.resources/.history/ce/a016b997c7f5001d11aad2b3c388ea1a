@@ -1,0 +1,22 @@
+package programacion2.parcial3.model;
+
+public class ClienteJuridico extends Cliente{
+
+	private String nit;
+	private String telefono;
+
+	public ClienteJuridico() {
+		super();
+	}
+
+	public ClienteJuridico(String nombre, String nit,String telefono) {
+		super(nombre);
+		this.nit = nit;
+		this.telefono = telefono;
+	}
+
+
+
+
+
+}

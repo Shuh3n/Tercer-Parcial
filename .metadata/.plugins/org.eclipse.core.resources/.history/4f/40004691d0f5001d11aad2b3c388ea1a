@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AhorroController">
+   <children>
+      <Label layoutX="181.0" text="Cliente Natural">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="14.0" layoutY="52.0" prefHeight="345.0" prefWidth="569.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Crear Cliente ">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="25.0" layoutY="18.0" text="Nombre ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="24.0" layoutY="118.0" text="Cédula ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="27.0" layoutY="171.0" text="Estrato">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtNombreCliente" layoutX="136.0" layoutY="22.0" prefHeight="25.0" prefWidth="325.0" />
+                        <TextField fx:id="txtApellidos" layoutX="133.0" layoutY="72.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="txtCedula" layoutX="110.0" layoutY="124.0" prefHeight="25.0" prefWidth="353.0" />
+                        <Button fx:id="btnLimpiarInfoNormal" layoutX="29.0" layoutY="234.0" mnemonicParsing="false" onAction="#limpiarAhorro" prefHeight="38.0" prefWidth="92.0" text="Limpiar">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnAgregarClienteNormal" layoutX="400.0" layoutY="234.0" mnemonicParsing="false" onAction="#agregarClienteNormal" prefHeight="39.0" prefWidth="107.0" text="Agregar">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                        <Separator layoutX="25.0" layoutY="223.0" prefHeight="0.0" prefWidth="535.0" />
+                        <Label layoutX="25.0" layoutY="66.0" text="Apellidos">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="comboEstrato" layoutX="123.0" layoutY="176.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Consultar información">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="35.0" layoutY="35.0" prefHeight="30.0" prefWidth="174.0" text="Número de cuenta: ">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtInfoNumCuenta" layoutX="231.0" layoutY="38.0" prefHeight="25.0" prefWidth="211.0" />
+                        <Button fx:id="btnConsultar2" layoutX="251.0" layoutY="77.0" mnemonicParsing="false" onAction="#mostrarInfoCuenta" text="Consultar" />
+                        <Button fx:id="btnInfoLimpiar" layoutX="454.0" layoutY="38.0" mnemonicParsing="false" onAction="#limpiarInfoCuenta" text="Limpiar" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

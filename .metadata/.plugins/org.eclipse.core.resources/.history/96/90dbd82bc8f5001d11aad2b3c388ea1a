@@ -1,0 +1,31 @@
+package programacion2.parcial3.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Empresa {
+
+	private String nombre;
+	private List<Cliente> ListaClientes = new ArrayList<>();;
+
+	public Empresa() {
+		super();
+	}
+
+	public Empresa(String nombre) {
+		super();
+		this.nombre = nombre;
+		this.ListaClientes = ListaClientes;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+}

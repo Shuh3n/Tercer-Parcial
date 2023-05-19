@@ -1,0 +1,25 @@
+package programacion2.parcial3.model;
+
+public class ClienteNormal extends Cliente{
+
+	private String apellidos;
+	private String cedula;
+	private String estrato;
+
+	public ClienteNormal() {
+		super();
+	}
+
+	public ClienteNormal(String nombre, String apellidos, String cedula, String estrato) {
+		super(nombre);
+		this.apellidos = apellidos;
+		this.cedula = cedula;
+		this.estrato = estrato
+	}
+
+
+
+
+
+
+}

@@ -1,0 +1,62 @@
+package programacion2.parcial3.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Empresa {
+
+	private String nombre;
+	private List<Cliente> listaClientes = new ArrayList<>();;
+
+	public Empresa() {
+		super();
+	}
+
+	public Empresa(String nombre, List<Cliente> listaClientes) {
+		super();
+		this.nombre = nombre;
+		this.listaClientes = listaClientes;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public List<Cliente> getListaClientes() {
+		return listaClientes;
+	}
+
+	public void setListaClientes(List<Cliente> listaClientes) {
+		this.listaClientes = listaClientes;
+	}
+
+    public boolean crearClienteNormal(String nombre, String apellidos,String cedula, String strato){
+
+    	if(!verificarCuenta(numCuenta)){
+    		ClienteNormal cliente = new ClienteNormal(nombre, apellidos, cedula, estrato)
+    		listaCuentas.add(cuenta);
+    		return true;
+    	}
+		return false;
+
+
+    }
+	public boolean verificarClienteNormal(String cedula){
+		boolean encontrado= false;
+		for (Cliente cuenta : listaClientes) {
+			if(cuenta.getCedula().equals(cedula)){
+				encontrado= true;
+				return encontrado;
+			}
+		}
+
+		return encontrado;
+	}
+
+
+
+}

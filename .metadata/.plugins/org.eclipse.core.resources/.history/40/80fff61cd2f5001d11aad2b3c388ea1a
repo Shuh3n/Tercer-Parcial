@@ -1,0 +1,95 @@
+package programacion2.parcial3.controllers;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import programacion2.parcial3.aplication.Aplicacion;
+
+public class ClienteNormalController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button btnLimpiarInfoNormal;
+
+    @FXML
+    private Button btnInfoLimpiar;
+
+    @FXML
+    private TextField txtApellidos;
+
+    @FXML
+    private Button btnAgregarClienteNormal;
+
+    @FXML
+    private TextField txtNombreCliente;
+
+    @FXML
+    private TextField txtInfoNumCuenta;
+
+    @FXML
+    private ComboBox<?> comboEstrato;
+
+    @FXML
+    private Button btnConsultar2;
+
+    @FXML
+    private TextField txtCedula;
+
+	private Aplicacion aplicacion;
+
+	private Stage stage;
+
+    @FXML
+    void limpiarAhorro(ActionEvent event) {
+
+    }
+
+    @FXML
+    void agregarClienteNormal(ActionEvent event) {
+
+    }
+
+    @FXML
+    void mostrarInfoCuenta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void limpiarInfoCuenta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+        assert btnLimpiarInfoNormal != null : "fx:id=\"btnLimpiarInfoNormal\" was not injected: check your FXML file 'VentanaPrincipal.view.fxml'.";
+        assert btnInfoLimpiar != null : "fx:id=\"btnInfoLimpiar\" was not injected: check your FXML file 'VentanaPrincipal.view.fxml'.";
+        assert txtApellidos != null : "fx:id=\"txtApellidos\" was not injected: check your FXML file 'VentanaPrincipal.view.fxml'.";
+        assert btnAgregarClienteNormal != null : "fx:id=\"btnAgregarClienteNormal\" was not injected: check your FXML file 'VentanaPrincipal.view.fxml'.";
+        assert txtNombreCliente != null : "fx:id=\"txtNombreCliente\" was not injected: check your FXML file 'VentanaPrincipal.view.fxml'.";
+        assert txtInfoNumCuenta != null : "fx:id=\"txtInfoNumCuenta\" was not injected: check your FXML file 'VentanaPrincipal.view.fxml'.";
+        assert comboEstrato != null : "fx:id=\"comboEstrato\" was not injected: check your FXML file 'VentanaPrincipal.view.fxml'.";
+        assert btnConsultar2 != null : "fx:id=\"btnConsultar2\" was not injected: check your FXML file 'VentanaPrincipal.view.fxml'.";
+        assert txtCedula != null : "fx:id=\"txtCedula\" was not injected: check your FXML file 'VentanaPrincipal.view.fxml'.";
+
+    }
+
+	public void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion= aplicacion;
+	}
+
+	public void setStage(Stage primaryStage) {
+		stage = primaryStage;
+	}
+}
+

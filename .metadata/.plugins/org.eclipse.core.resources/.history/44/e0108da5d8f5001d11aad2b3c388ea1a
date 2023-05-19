@@ -1,0 +1,104 @@
+package controllers;
+
+import java.net.URL;
+
+import java.util.ResourceBundle;
+
+import application.Aplicacion;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class ClienteNormalController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
+
+    @FXML
+    private Button btnLimpiarInfoNormal;
+
+    @FXML
+    private Button btnInfoLimpiar;
+
+    @FXML
+    private TextField txtApellidos;
+
+    @FXML
+    private Button btnAgregarClienteNormal;
+
+    @FXML
+    private TextField txtNombreCliente;
+
+    @FXML
+    private TextField txtInfoNumCuenta;
+
+    @FXML
+    private ComboBox<String> comboEstrato;
+
+    @FXML
+    private Button btnConsultar2;
+
+    @FXML
+    private TextField txtCedula;
+
+	private Stage stage;
+
+	private Aplicacion aplicacion;
+
+
+    @FXML
+    void limpiarAhorro(ActionEvent event) {
+    	txtNombreCliente.clear();
+    	txtApellidos.clear();
+    	txtCedula.clear();
+    	comboEstrato.getSelectionModel().clearSelection();
+
+    }
+
+    @FXML
+    void agregarClienteNormal(ActionEvent event) {
+    	String name = txtNombreCliente.getText();
+    	String surnames = txtApellidos.getText();
+    	String id = txtCedula.getText();
+    	int estrato = comboEstrato.getValue();
+
+
+    }
+
+    @FXML
+    void mostrarInfoCuenta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void limpiarInfoCuenta(ActionEvent event) {
+
+    }
+
+    @FXML
+    void initialize() {
+    }
+
+    public void initialize(URL location, ResourceBundle resources) {
+    	comboEstrato.getItems().addAll("1", "2" , "3" ,"4", "5");
+    }
+
+	public void setAplicacion(Aplicacion aplicacion) {
+		this.aplicacion= aplicacion;
+
+	}
+	public void setStage(Stage primaryStage) {
+		stage = primaryStage;
+
+	}
+
+
+
+}
+
